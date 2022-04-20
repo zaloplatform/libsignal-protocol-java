@@ -23,7 +23,7 @@ public class SenderMessageKey {
   private final byte[] seed;
 
   public SenderMessageKey(int iteration, byte[] seed) {
-    byte[] derivative = new HKDFv3().deriveSecrets(seed, "WhisperGroup".getBytes(), 48);
+    byte[] derivative = new HKDFv3().deriveSecrets(seed, "ZaloGroup".getBytes(), 48);
     byte[][] parts    = ByteUtil.split(derivative, 16, 32);
 
     this.iteration = iteration;

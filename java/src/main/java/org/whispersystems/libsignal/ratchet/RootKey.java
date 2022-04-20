@@ -32,7 +32,7 @@ public class RootKey {
       throws InvalidKeyException
   {
     byte[]             sharedSecret       = Curve.calculateAgreement(theirRatchetKey, ourRatchetKey.getPrivateKey());
-    byte[]             derivedSecretBytes = kdf.deriveSecrets(sharedSecret, key, "WhisperRatchet".getBytes(), DerivedRootSecrets.SIZE);
+    byte[]             derivedSecretBytes = kdf.deriveSecrets(sharedSecret, key, "ZaloRatchet".getBytes(), DerivedRootSecrets.SIZE);
     DerivedRootSecrets derivedSecrets     = new DerivedRootSecrets(derivedSecretBytes);
 
     RootKey  newRootKey  = new RootKey(kdf, derivedSecrets.getRootKey());
